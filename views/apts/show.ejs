@@ -1,53 +1,33 @@
 <% layout("layouts/boilerplate") %>
-    <!-- <div class="row">
+    <div class="row">
         <div class="col-6 offset-3">
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
+            <div class="card mb-3">
+                <img src="<%= foundApt.image %>" alt="" class="card-img-top">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's
-                        content.</p>
+                    <h5 class="card-title">
+                        <%= foundApt.title %>
+                    </h5>
+                    <p class="card-text">Opis: <%= foundApt.short_description %>
+                    </p>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
+                    <li class="list-group-item text-muted">Cena: <%= foundApt.price %> evra</li>
+                    <li class="list-group-item text-muted">Broj soba: <%= foundApt.rooms %>
+                    </li>
+                    <li class="list-group-item text-muted">Latituda: <%= foundApt.lat %>
+                    </li>
+                    <li class="list-group-item text-muted">Longituda: <%= foundApt.long %>
+                    </li>
                 </ul>
                 <div class="card-body">
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
+                    <a class="card-link btn btn-info" href="/apts/<%=foundApt._id%>/edit">Izmeni sadrzaj</a>
+
+                    <form class="d-inline" action="/apts/<%=foundApt._id%>?_method=DELETE" method="POST"><button
+                            class="btn btn-danger">Izbrisi
+                            stan</button>
+                    </form>
                 </div>
+                <div class="card-footer text-muted">2 days ago</div>
             </div>
         </div>
     </div>
-
- -->
-
-    <h1>
-        <%= foundApt.title %>
-    </h1>
-    <img src="<%= foundApt.image %>" alt="">
-    <p>Opis: <%= foundApt.short_description %>
-    </p>
-    <ul>
-
-        <li>Cena: <%= foundApt.price %> evra
-        </li>
-        <li>Square meters: <%= foundApt.price %> m2
-        </li>
-        <li>Broj soba: <%= foundApt.rooms %>
-        </li>
-        <li>Latituda: <%= foundApt.lat %>
-        </li>
-        <li>Longituda: <%= foundApt.long %>
-        </li>
-    </ul>
-    <p><a href="/apts/<%= foundApt._id %>/edit">Izmeni sadrzaj</a></p>
-    <footer>
-        <a href="/apts">Svi stanovi</a>
-
-        <form action="/apts/<%= foundApt._id %>?_method=DELETE" method="POST"><button type="submit">Izbrisi
-                stan</button>
-        </form>
-    </footer>
