@@ -1,0 +1,23 @@
+<% layout("layouts/boilerplate") %>
+    <h1>Stanovi Beograd</h1>
+    <a href="/apts/new">Unesi nov stan</a>
+    <% for (const apt of apts) { %>
+        <div class="card mb-3">
+            <div class="row">
+                <div class="col-md-4"><img class="img-fluid" src="<%= apt.image %>" alt=""></div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5>
+                            <%= apt.title %>
+                        </h5>
+                        <p class="card-text">Opis: <%= apt.short_description %>
+                        </p>
+                        <p class="card-text"><small class="text-muted">Cena: <%= apt.price %> evra</small></p>
+                        <p class="card-text"><small class="text-muted">Broj soba: <%= apt.rooms %></small></p>
+                        <p class="card-text"><small class="text-muted">Povrsina: <%= apt.price %> m2</small></p>
+                        <a href="/apts/<%= apt._id %>" class="btn btn-primary"> Vise detalja</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% } %>

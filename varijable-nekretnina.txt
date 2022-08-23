@@ -1,0 +1,18 @@
+longitude
+
+langitude
+
+broj soba
+
+kvadratura
+
+sprat
+
+garaza - da / ne
+
+parking - da / ne
+
+uknjizen - da / ne
+
+grejanje - centralno / ne
+
