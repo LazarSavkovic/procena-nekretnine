@@ -3,7 +3,6 @@ const path = require('path');
 const mongoose = require("mongoose");
 const Apt = require("./models/apt");
 const methodOverride = require("method-override");
-const { findOneAndUpdate } = require("./models/apt");
 const ejsMate = require("ejs-mate");
 
 mongoose.connect("mongodb://localhost:27017/procena-nekretnine", {
@@ -39,7 +38,6 @@ app.get("/apts/new", async (req, res) => {
 })
 app.post("/apts", async (req, res) => {
     const newApt = new Apt(req.body.apt);
-    console.log(req.body)
     await newApt.save()
     res.redirect("apts")
 })
