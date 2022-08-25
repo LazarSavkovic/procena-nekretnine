@@ -36,10 +36,15 @@ app.get("/apts", async (req, res) => {
 app.get("/apts/new", async (req, res) => {
     res.render("apts/new")
 })
-app.post("/apts", async (req, res) => {
-    const newApt = new Apt(req.body.apt);
-    await newApt.save()
-    res.redirect("apts")
+app.post("/apts", async (req, res, next) => {
+    try {
+        const newApt = new Apt(req.body.apt);
+        await newApt.save()
+        res.redirect("apts")
+    }
+    catch (e) {
+        next(e)
+    }
 })
 app.get("/apts/:id/edit", async (req, res) => {
     const { id } = req.params;
@@ -68,6 +73,12 @@ app.delete("/apts/:id", async (req, res) => {
     res.redirect("/apts")
 
 })
+
+
+app.use((err, req, res, next) => {
+    res.send("Nesto nije u redu!")
+})
+
 
 app.listen(3000, () => {
     console.log("Listening on port 3000")
