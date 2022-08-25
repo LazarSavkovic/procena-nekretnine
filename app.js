@@ -6,6 +6,8 @@ const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 const ExpressError = require("./utilities/ExpressError")
 const catchAsync = require("./utilities/catchAsync")
+const Joi = require("joi");
+const apt = require("./models/apt");
 
 mongoose.connect("mongodb://localhost:27017/procena-nekretnine", {
     useNewUrlParser: true,
@@ -41,10 +43,29 @@ app.get("/apts/new", catchAsync(async (req, res) => {
 }))
 
 app.post("/apts", catchAsync(async (req, res, next) => {
-    if (!req.body.apt) throw new ExpressError("Unos podataka nije validan", 400);
+    // if (!req.body.apt) throw new ExpressError("Unos podataka nije validan", 400);
+    console.log("helo")
+    const aptSchema = Joi.object({
+        apt: Joi.object({
+            title: Joi.string().required(),
+            short_description: Joi.string().required(),
+            price: Joi.number().required().min(0),
+            sq_mt: Joi.number().required().min(0),
+            rooms: Joi.number().required().min(0),
+            long: Joi.number().required().min(0),
+            lat: Joi.number().required().min(0)
+        }).required()
+    })
+    const { error } = aptSchema.validate(req.body)
+
+    if (error) {
+        const msg = error.details.map(el => el.message).join(",")
+        throw new ExpressError(msg, 400)
+    }
+    console.log(result)
     const newApt = new Apt(req.body.apt);
     await newApt.save()
-    res.redirect("apts")
+    res.redirect(`/apts/${newApt._id}`)
 }))
 
 app.get("/apts/:id/edit", catchAsync(async (req, res) => {

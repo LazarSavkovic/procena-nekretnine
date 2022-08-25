@@ -5,7 +5,7 @@ const aptSchema = new Schema({
     price: {
         type: Number,
         min: 0,
-        required: true
+        // required: true
     },
     price_by_surface: Number,
     image: String,
@@ -14,20 +14,20 @@ const aptSchema = new Schema({
     sq_mt: {
         type: Number,
         min: 0,
-        required: true
+        // required: true
     }, rooms: {
         type: Number,
         min: 0,
-        required: true
+        // required: true
     }, short_description: String,
     title: String,
     date: String,
     lat: {
         type: Number,
-        required: true
+        // required: true
     }, long: {
         type: Number,
-        required: true
+        // required: true
     }
 })
 
