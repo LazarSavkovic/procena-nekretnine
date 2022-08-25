@@ -6,8 +6,8 @@ const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 const ExpressError = require("./utilities/ExpressError")
 const catchAsync = require("./utilities/catchAsync")
-const Joi = require("joi");
-const apt = require("./models/apt");
+const { aptSchema } = require("./schemas");
+
 
 mongoose.connect("mongodb://localhost:27017/procena-nekretnine", {
     useNewUrlParser: true,
@@ -30,6 +30,22 @@ app.set("view engine", "ejs")
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride("_method"));
 
+
+const validateApt = (req, res, next) => {
+
+    const { error } = aptSchema.validate(req.body)
+
+    if (error) {
+        const msg = error.details.map(el => el.message).join(",")
+        throw new ExpressError(msg, 400)
+    } else {
+        next(e)
+    }
+
+}
+
+
+
 app.get("/", (req, res) => {
     res.render("home");
 })
@@ -42,27 +58,9 @@ app.get("/apts/new", catchAsync(async (req, res) => {
     res.render("apts/new")
 }))
 
-app.post("/apts", catchAsync(async (req, res, next) => {
+app.post("/apts", validateApt, catchAsync(async (req, res, next) => {
     // if (!req.body.apt) throw new ExpressError("Unos podataka nije validan", 400);
-    console.log("helo")
-    const aptSchema = Joi.object({
-        apt: Joi.object({
-            title: Joi.string().required(),
-            short_description: Joi.string().required(),
-            price: Joi.number().required().min(0),
-            sq_mt: Joi.number().required().min(0),
-            rooms: Joi.number().required().min(0),
-            long: Joi.number().required().min(0),
-            lat: Joi.number().required().min(0)
-        }).required()
-    })
-    const { error } = aptSchema.validate(req.body)
 
-    if (error) {
-        const msg = error.details.map(el => el.message).join(",")
-        throw new ExpressError(msg, 400)
-    }
-    console.log(result)
     const newApt = new Apt(req.body.apt);
     await newApt.save()
     res.redirect(`/apts/${newApt._id}`)
@@ -83,7 +81,7 @@ app.get("/apts/:id", catchAsync(async (req, res) => {
 
 
 
-app.put("/apts/:id", catchAsync(async (req, res) => {
+app.put("/apts/:id", validateApt, catchAsync(async (req, res) => {
     const { id } = req.params;
     const updatedApt = await Apt.findByIdAndUpdate(id, { ...req.body.apt })
     res.redirect(`/apts/${id}`)
