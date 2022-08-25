@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 const Apt = require("./models/apt");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
+const ExpressError = require("./utilities/ExpressError")
+const catchAsync = require("./utilities/catchAsync")
 
 mongoose.connect("mongodb://localhost:27017/procena-nekretnine", {
     useNewUrlParser: true,
@@ -29,50 +31,48 @@ app.use(methodOverride("_method"));
 app.get("/", (req, res) => {
     res.render("home");
 })
-app.get("/apts", async (req, res) => {
+app.get("/apts", catchAsync(async (req, res) => {
     const apts = await Apt.find({})
     res.render("apts/index", { apts })
-})
-app.get("/apts/new", async (req, res) => {
+}))
+
+app.get("/apts/new", catchAsync(async (req, res) => {
     res.render("apts/new")
-})
-app.post("/apts", async (req, res, next) => {
-    try {
-        const newApt = new Apt(req.body.apt);
-        await newApt.save()
-        res.redirect("apts")
-    }
-    catch (e) {
-        next(e)
-    }
-})
-app.get("/apts/:id/edit", async (req, res) => {
+}))
+
+app.post("/apts", catchAsync(async (req, res, next) => {
+    const newApt = new Apt(req.body.apt);
+    await newApt.save()
+    res.redirect("apts")
+}))
+
+app.get("/apts/:id/edit", catchAsync(async (req, res) => {
     const { id } = req.params;
     const foundApt = await Apt.findById(id);
     res.render("apts/edit", { foundApt })
     // res.send("got it")
-})
+}))
 
-app.get("/apts/:id", async (req, res) => {
+app.get("/apts/:id", catchAsync(async (req, res) => {
     const { id } = req.params;
     const foundApt = await Apt.findById(id);
     res.render("apts/show", { foundApt })
-})
+}))
 
 
 
-app.put("/apts/:id", async (req, res) => {
+app.put("/apts/:id", catchAsync(async (req, res) => {
     const { id } = req.params;
     const updatedApt = await Apt.findByIdAndUpdate(id, { ...req.body.apt })
     res.redirect(`/apts/${id}`)
-})
+}))
 
-app.delete("/apts/:id", async (req, res) => {
+app.delete("/apts/:id", catchAsync(async (req, res) => {
     const { id } = req.params;
     await Apt.findByIdAndDelete(id);
     res.redirect("/apts")
 
-})
+}))
 
 
 app.use((err, req, res, next) => {
