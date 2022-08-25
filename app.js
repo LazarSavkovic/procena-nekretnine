@@ -41,6 +41,7 @@ app.get("/apts/new", catchAsync(async (req, res) => {
 }))
 
 app.post("/apts", catchAsync(async (req, res, next) => {
+    if (!req.body.apt) throw new ExpressError("Unos podataka nije validan", 400);
     const newApt = new Apt(req.body.apt);
     await newApt.save()
     res.redirect("apts")
@@ -74,9 +75,14 @@ app.delete("/apts/:id", catchAsync(async (req, res) => {
 
 }))
 
+app.all("*", (req, res, next) => {
+    next(new ExpressError("Page not found", 404))
+})
 
 app.use((err, req, res, next) => {
-    res.send("Nesto nije u redu!")
+    const { status = 500 } = err;
+    if (!err.message) err.message = "Doslo je do greske"
+    res.status(status).render("error", { err });
 })
 
 
