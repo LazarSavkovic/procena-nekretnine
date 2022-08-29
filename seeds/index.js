@@ -1,7 +1,7 @@
 const path = require('path');
 const mongoose = require("mongoose");
 const Apt = require("../models/apt");
-const apartments = require("./apartments.json")
+const apartments = require("./data_science/apartments.json")
 
 
 mongoose.connect("mongodb://localhost:27017/procena-nekretnine", {
