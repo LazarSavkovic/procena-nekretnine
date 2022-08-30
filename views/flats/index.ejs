@@ -1,0 +1,24 @@
+<% layout("layouts/boilerplate") %>
+    <h1>Tvoje nekretnine</h1>
+    <a href="/flats/new">Unesi novu nekretninu</a>
+    <% for (const flat of flats) { %>
+        <div class="card mb-3">
+            <div class="row">
+                <div class="col-md-4"><img class="img-fluid" src="<%= flat.image %>" alt=""></div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5>
+                            <%= flat.title %>
+                        </h5>
+                        <p class="card-text">Opis: <%= flat.short_description %>
+                        </p>
+                        <p class="card-text"><small class="text-muted">Precenjena vrednost: <%= flat.value %>
+                                    evra</small></p>
+                        <p class="card-text"><small class="text-muted">Broj soba: <%= flat.rooms %></small></p>
+                        <p class="card-text"><small class="text-muted">Povrsina: <%= flat.sq_mt%> m2</small></p>
+                        <a href="/flats/<%= flat._id %>" class="btn btn-primary"> Vise detalja</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% } %>

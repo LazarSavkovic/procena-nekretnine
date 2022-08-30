@@ -1,56 +1,45 @@
 <% layout("layouts/boilerplate") %>
     <div class="row">
-        <h1 class="text-center">Novi stan</h1>
+        <h1 class="text-center">Nova nekretnina</h1>
         <div class="col-6 offset-3">
-            <form action="/apts" method="POST" novalidate class="validated-form">
+            <form action="/flats" method="POST" novalidate class="validated-form">
                 <div class="mb-3">
                     <label class="form-label" for="title">Naziv</label>
-                    <input class="form-control" type="text" id="title" name="apt[title]" required>
+                    <input class="form-control" type="text" id="title" name="flat[title]" required>
                     <div class="valid-feedback">Odlicno!</div>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="short_description">Kratak opis:</label>
-                    <textarea class="form-control" name="apt[short_description]" id="short_description" cols="30"
-                        rows="5" required></textarea>
-                    <div class="valid-feedback">Odlicno!</div>
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label" for="price">Cena:</label>
-                    <div class="input-group">
-                        <span class="input-group-text" id="price-label">€</span>
-                        <input type="text" class="form-control" id="price" name="apt[price]" placeholder="0.00"
-                            aria-label="price" aria-describedby="price-label" required>
-                        <div class="valid-feedback">Odlicno!</div>
-                    </div>
+                    <textarea class="form-control" name="flat[short_description]" id="short_description" cols="30"
+                        rows="5"></textarea>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="sq_mt">Metara kvadratnih:</label>
-                    <input class="form-control" type="number" name="apt[sq_mt]" id="sq_mt" required>
+                    <input class="form-control" type="number" name="flat[sq_mt]" id="sq_mt" required>
                     <div class="valid-feedback">Odlicno!</div>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="rooms">Broj soba:</label>
-                    <input class="form-control" type="number" name="apt[rooms]" id="rooms" required>
+                    <input class="form-control" type="number" name="flat[rooms]" id="rooms" required>
                     <div class="valid-feedback">Odlicno!</div>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="floor">Sprat:</label>
-                    <input class="form-control" type="number" name="apt[floor]" id="floor">
+                    <input class="form-control" type="number" name="flat[floor]" id="floor">
                     <div class="valid-feedback">Odlicno!</div>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="lat">Latituda:</label>
-                    <input class="form-control" type="number" name="apt[lat]" id="lat" required>
+                    <input class="form-control" type="number" step="any" name="flat[lat]" id="lat" required>
                     <div class="valid-feedback">Odlicno!</div>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="long">Longituda:</label>
-                    <input class="form-control" type="number" name="apt[long]" id="long" required>
+                    <input class="form-control" type="number" step="any" name="flat[long]" id="long" required>
                     <div class="valid-feedback">Odlicno!</div>
                 </div>
                 <div class="mb-3">
                     <button class="btn btn-success" type="submit">Unesi</button>
                 </div>
-            </form> <a href="/apts">Svi stanovi</a>
+            </form> <a href="/flats">Moje nekretnine</a>
         </div>
