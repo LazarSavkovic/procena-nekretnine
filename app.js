@@ -5,6 +5,7 @@ const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 const ExpressError = require("./utilities/ExpressError")
 const session = require("express-session");
+const flash = require("connect-flash");
 
 const flats = require("./routes/flats")
 const apts = require("./routes/apts")
@@ -45,6 +46,13 @@ const sessionConfig = {
 
 }
 app.use(session(sessionConfig))
+app.use(flash());
+
+app.use((req, res, next) => {
+    res.locals.success = req.flash("success");
+    res.locals.error = req.flash("error");
+    next();
+})
 
 
 app.use("/flats", flats)

@@ -30,11 +30,10 @@ router.get("/new", catchAsync(async (req, res) => {
 }))
 
 router.post("/", validateFlat, catchAsync(async (req, res, next) => {
-    // if (!req.body.apt) throw new ExpressError("Unos podataka nije validan", 400);
-
     const flat = new Flat(req.body.flat);
     flat.value = regress(flat, weights);
     await flat.save()
+    req.flash("success", "Uspesno uneta nekretnina")
     res.redirect(`/flats/${flat._id}`)
 }))
 
