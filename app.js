@@ -4,13 +4,6 @@ const mongoose = require("mongoose");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 const ExpressError = require("./utilities/ExpressError")
-const catchAsync = require("./utilities/catchAsync")
-const regress = require("./utilities/regress")
-const { aptSchema } = require("./schemas");
-const { flatSchema } = require("./schemas");
-const Apt = require("./models/apt");
-const Flat = require("./models/flat");
-const weights = require("./seeds/data_science/weights.json")
 
 const flats = require("./routes/flats")
 const apts = require("./routes/apts")
@@ -44,17 +37,6 @@ app.use("/apts", apts)
 app.get("/", (req, res) => {
     res.render("home");
 })
-
-
-
-// APTS ROUTES
-
-
-
-// FLAT ROUTES
-
-
-
 
 
 app.all("*", (req, res, next) => {
