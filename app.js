@@ -5,6 +5,7 @@ const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 const ExpressError = require("./utilities/ExpressError")
 const catchAsync = require("./utilities/catchAsync")
+const regress = require("./utilities/regress")
 const { aptSchema } = require("./schemas");
 const { flatSchema } = require("./schemas");
 const Apt = require("./models/apt");
@@ -131,7 +132,7 @@ app.post("/flats", validateFlat, catchAsync(async (req, res, next) => {
     // if (!req.body.apt) throw new ExpressError("Unos podataka nije validan", 400);
 
     const flat = new Flat(req.body.flat);
-    flat.value = weights.intercept + flat.lat * weights.coefficients[0] + flat.long * weights.coefficients[1] + flat.sq_mt * weights.coefficients[2] + flat.rooms * weights.coefficients[3]
+    flat.value = regress(flat, weights);
     await flat.save()
     res.redirect(`/flats/${flat._id}`)
 }))
@@ -154,6 +155,8 @@ app.get("/flats/:id", catchAsync(async (req, res) => {
 app.put("/flats/:id", validateFlat, catchAsync(async (req, res) => {
     const { id } = req.params;
     const flat = await Flat.findByIdAndUpdate(id, { ...req.body.flat })
+    flat.value = regress(flat, weights);
+    await flat.save()
     res.redirect(`/flats/${id}`)
 }))
 
