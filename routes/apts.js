@@ -32,22 +32,30 @@ router.get("/new", catchAsync(async (req, res) => {
 router.post("/", validateApt, catchAsync(async (req, res, next) => {
     // if (!req.body.apt) throw new ExpressError("Unos podataka nije validan", 400);
 
-    const newApt = new Apt(req.body.apt);
-    await newApt.save()
-    res.redirect(`/apts/${newApt._id}`)
+    const apt = new Apt(req.body.apt);
+    await apt.save()
+    req.flash("success", "Uspesno modifikovana nekretnina")
+    res.redirect(`/apts/${apt._id}`)
 }))
 
 router.get("/:id/edit", catchAsync(async (req, res) => {
     const { id } = req.params;
-    const foundApt = await Apt.findById(id);
-    res.render("apts/edit", { foundApt })
-    // res.send("got it")
+    const apt = await Apt.findById(id);
+    if (!apt) {
+        req.flash("error", "Nekretnina nije nadjena")
+        return res.redirect("/apts")
+    }
+    res.render("apts/edit", { apt });
 }))
 
 router.get("/:id", catchAsync(async (req, res) => {
     const { id } = req.params;
-    const foundApt = await Apt.findById(id);
-    res.render("apts/show", { foundApt })
+    const apt = await Apt.findById(id);
+    if (!apt) {
+        req.flash("error", "Nekretnina nije nadjena")
+        return res.redirect("/apts")
+    }
+    res.render("apts/show", { apt })
 }))
 
 
@@ -55,12 +63,14 @@ router.get("/:id", catchAsync(async (req, res) => {
 router.put("/:id", validateApt, catchAsync(async (req, res) => {
     const { id } = req.params;
     const updatedApt = await Apt.findByIdAndUpdate(id, { ...req.body.apt })
+    req.flash("success", "Uspesno modifikovana nekretnina")
     res.redirect(`/apts/${id}`)
 }))
 
 router.delete("/:id", catchAsync(async (req, res) => {
     const { id } = req.params;
     await Apt.findByIdAndDelete(id);
+    req.flash("success", "Uspesno izbrisana nekretnina")
     res.redirect("/apts")
 
 }))

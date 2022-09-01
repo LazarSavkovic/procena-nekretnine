@@ -3,17 +3,17 @@
     <div class="row">
         <h1 class="text-center">Izmeni stan</h1>
         <div class="col-6 offset-3">
-            <form action="/apts/<%= foundApt._id %>?_method=PUT" method="POST" novalidate class="validated-form">
+            <form action="/apts/<%= apt._id %>?_method=PUT" method="POST" novalidate class="validated-form">
                 <div class="mb-3">
                     <label class="form-label" for="title">Naziv</label>
-                    <input class="form-control" type="text" id="title" name="apt[title]" value="<%=foundApt.title %>"
+                    <input class="form-control" type="text" id="title" name="apt[title]" value="<%=apt.title %>"
                         required>
                     <div class="valid-feedback">Odlicno!</div>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="short_description">Kratak opis:</label>
                     <textarea class="form-control" name="apt[short_description]" id="short_description" cols="30"
-                        rows="5" required><%= foundApt.short_description %></textarea>
+                        rows="5" required><%= apt.short_description %></textarea>
                     <div class="valid-feedback">Odlicno!</div>
                 </div>
 
@@ -22,36 +22,35 @@
                     <div class="input-group">
                         <span class="input-group-text" id="price-label">€</span>
                         <input type="text" class="form-control" id="price" name="apt[price]" placeholder="0.00"
-                            aria-label="price" aria-describedby="price-label" value="<%=foundApt.price %>" required>
+                            aria-label="price" aria-describedby="price-label" value="<%=apt.price %>" required>
                         <div class="valid-feedback">Odlicno!</div>
                     </div>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="sq_mt">Metara kvadratnih:</label>
-                    <input class="form-control" type="number" name="apt[sq_mt]" id="sq_mt" value="<%=foundApt.sq_mt %>"
+                    <input class="form-control" type="number" name="apt[sq_mt]" id="sq_mt" value="<%=apt.sq_mt %>"
                         required>
                     <div class="valid-feedback">Odlicno!</div>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="rooms">Broj soba:</label>
-                    <input class="form-control" type="number" name="apt[rooms]" id="rooms" value="<%=foundApt.rooms %>"
+                    <input class="form-control" type="number" name="apt[rooms]" id="rooms" value="<%=apt.rooms %>"
                         required>
                     <div class="valid-feedback">Odlicno!</div>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="floor">Sprat:</label>
-                    <input class="form-control" type="number" name="apt[floor]" value="<%=foundApt.floor %>" id="floor">
+                    <input class="form-control" type="number" name="apt[floor]" value="<%=apt.floor %>" id="floor">
                     <div class="valid-feedback">Odlicno!</div>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="lat">Latituda:</label>
-                    <input class="form-control" type="number" name="apt[lat]" id="lat" value="<%=foundApt.lat %>"
-                        required>
+                    <input class="form-control" type="number" name="apt[lat]" id="lat" value="<%=apt.lat %>" required>
                     <div class="valid-feedback">Odlicno!</div>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="long">Longituda:</label>
-                    <input class="form-control" type="number" name="apt[long]" id="long" value="<%=foundApt.long %>"
+                    <input class="form-control" type="number" name="apt[long]" id="long" value="<%=apt.long %>"
                         required>
                     <div class="valid-feedback">Odlicno!</div>
                 </div>
@@ -59,5 +58,5 @@
                     <button class="btn btn-info" type="submit">Izmeni</button>
                 </div>
             </form>
-            <a href="/apts/<%= foundApt._id %> ">Vrati se na stan</a>
+            <a href="/apts/<%= apt._id %> ">Vrati se na stan</a>
         </div>

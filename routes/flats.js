@@ -57,12 +57,14 @@ router.put("/:id", validateFlat, catchAsync(async (req, res) => {
     const flat = await Flat.findByIdAndUpdate(id, { ...req.body.flat })
     flat.value = regress(flat, weights);
     await flat.save()
+    req.flash("success", "Uspesno modifikovana nekretnina")
     res.redirect(`/flats/${id}`)
 }))
 
 router.delete("/:id", catchAsync(async (req, res) => {
     const { id } = req.params;
     await Flat.findByIdAndDelete(id);
+    req.flash("success", "Uspesno izbrisana nekretnina")
     res.redirect("/flats")
 
 }))

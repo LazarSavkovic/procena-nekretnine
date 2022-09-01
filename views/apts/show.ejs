@@ -2,29 +2,29 @@
     <div class="row">
         <div class="col-6 offset-3">
             <div class="card mb-3">
-                <img src="<%= foundApt.image %>" alt="" class="card-img-top">
+                <img src="<%= apt.image %>" alt="" class="card-img-top">
                 <div class="card-body">
                     <h5 class="card-title">
-                        <%= foundApt.title %>
+                        <%= apt.title %>
                     </h5>
-                    <p class="card-text">Opis: <%= foundApt.short_description %>
+                    <p class="card-text">Opis: <%= apt.short_description %>
                     </p>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item text-muted">Cena: <%= foundApt.price %> evra</li>
-                    <li class="list-group-item text-muted">Broj soba: <%= foundApt.rooms %>
+                    <li class="list-group-item text-muted">Cena: <%= apt.price %> evra</li>
+                    <li class="list-group-item text-muted">Broj soba: <%= apt.rooms %>
                     </li>
-                    <li class="list-group-item text-muted">Povrsina: <%= foundApt.sq_mt %>
+                    <li class="list-group-item text-muted">Povrsina: <%= apt.sq_mt %>
                     </li>
-                    <li class="list-group-item text-muted">Latituda: <%= foundApt.lat %>
+                    <li class="list-group-item text-muted">Latituda: <%= apt.lat %>
                     </li>
-                    <li class="list-group-item text-muted">Longituda: <%= foundApt.long %>
+                    <li class="list-group-item text-muted">Longituda: <%= apt.long %>
                     </li>
                 </ul>
                 <div class="card-body">
-                    <a class="card-link btn btn-info" href="/apts/<%=foundApt._id%>/edit">Izmeni sadrzaj</a>
+                    <a class="card-link btn btn-info" href="/apts/<%=apt._id%>/edit">Izmeni sadrzaj</a>
 
-                    <form class="d-inline" action="/apts/<%=foundApt._id%>?_method=DELETE" method="POST"><button
+                    <form class="d-inline" action="/apts/<%=apt._id%>?_method=DELETE" method="POST"><button
                             class="btn btn-danger">Izbrisi
                             stan</button>
                     </form>
