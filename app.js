@@ -10,8 +10,9 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local")
 const User = require("./models/user");
 
-const flats = require("./routes/flats")
-const apts = require("./routes/apts")
+const userRoutes = require("./routes/users")
+const flatRoutes = require("./routes/flats")
+const aptRoutes = require("./routes/apts")
 
 mongoose.connect("mongodb://localhost:27017/procena-nekretnine", {
     useNewUrlParser: true,
@@ -64,11 +65,12 @@ app.use((req, res, next) => {
     next();
 })
 
-app.get("/fakeUse")
 
 
-app.use("/flats", flats)
-app.use("/apts", apts)
+
+app.use("/", userRoutes)
+app.use("/flats", flatRoutes)
+app.use("/apts", aptRoutes)
 
 
 app.get("/", (req, res) => {
