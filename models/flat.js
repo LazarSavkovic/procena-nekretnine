@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const flatSchema = new Schema({
+    author: {
+        type: Schema.Types.ObjectId,
+        ref: "User"
+    },
     value: {
         type: Number,
         min: 0,

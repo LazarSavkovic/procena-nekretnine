@@ -2,22 +2,8 @@
 const express = require("express");
 const router = express.Router();
 const catchAsync = require("../utilities/catchAsync")
-const ExpressError = require("../utilities/ExpressError")
 const Apt = require("../models/apt");
-const { aptSchema } = require("../schemas");
-
-const validateApt = (req, res, next) => {
-
-    const { error } = aptSchema.validate(req.body)
-
-    if (error) {
-        const msg = error.details.map(el => el.message).join(",")
-        throw new ExpressError(msg, 400)
-    } else {
-        next()
-    }
-
-}
+const { validateApt } = require("../middleware")
 
 
 router.get("/", catchAsync(async (req, res) => {
@@ -34,7 +20,7 @@ router.post("/", validateApt, catchAsync(async (req, res, next) => {
 
     const apt = new Apt(req.body.apt);
     await apt.save()
-    req.flash("success", "Uspesno modifikovana nekretnina")
+    req.flash("success", "Uspesno kreirana nekretnina")
     res.redirect(`/apts/${apt._id}`)
 }))
 
