@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const opts = {toJSON: {virtuals: true}}
+
 const aptSchema = new Schema({
     price: {
         type: Number,
@@ -32,6 +34,10 @@ const aptSchema = new Schema({
         type: Number,
         // required: true
     }
-})
+}, opts)
+
+aptSchema.virtual("properties.popUpMarkup").get(function() {
+    return `<a href="/apts/${this._id}" ><h4>${this.title}</h4></a><p>${this.price} €</p>`
+});
 
 module.exports = mongoose.model("Apt", aptSchema);

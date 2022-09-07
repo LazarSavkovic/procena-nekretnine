@@ -1,10 +1,15 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const opts = {toJSON: {virtuals: true}}
+
 const flatSchema = new Schema({
     author: {
         type: Schema.Types.ObjectId,
         ref: "User"
+    }, location: {
+        type: String,
+        required: true
     },
     value: {
         type: Number,
@@ -29,13 +34,22 @@ const flatSchema = new Schema({
     }, short_description: String,
     title: String,
     date: String,
-    lat: {
-        type: Number,
-        // required: true
-    }, long: {
-        type: Number,
-        // required: true
+    geometry: {
+        type: {
+            type: String,
+            enum: ['Point'],
+            required: true
+        },
+        coordinates: {
+            type: [Number],
+            required: true
+        }
     }
-})
+}, opts)
+
+flatSchema.virtual("properties.popUpMarkup").get(function() {
+    return `<a href="/apts/${this._id}" ><h4>${this.title}</h4></a><p>Procenjena vrednost: ${this.value} €</p>`
+});
+
 
 module.exports = mongoose.model("Flat", flatSchema);
