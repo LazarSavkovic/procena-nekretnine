@@ -48,7 +48,7 @@ const flatSchema = new Schema({
 }, opts)
 
 flatSchema.virtual("properties.popUpMarkup").get(function() {
-    return `<a href="/apts/${this._id}" ><h4>${this.title}</h4></a><p>Procenjena vrednost: ${this.value} €</p>`
+    return `<a href="/apts/${this._id}" class="map-popup-link"><p class="lead">${this.title}</p></a><p>Procenjena vrednost:<br>${this.value} €</p>`
 });
 
 

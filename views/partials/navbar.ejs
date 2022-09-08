@@ -7,16 +7,16 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link" href="/apts">Pocetna</a>
+                <a class="nav-link" href="/">Pocetna</a>
                 <a class="nav-link" href="/flats">Moje nekretnine</a>
                 <a class="nav-link" href="/flats/new">Nova nekretnina</a>
             </div>
             <div class="navbar-nav ms-auto">
                 <% if(!currentUser) {%>
-                    <a class="nav-link" href="/login">Prijavi se</a>
-                    <a class="nav-link" href="/register">Registruj se</a>
+                    <a class="nav-link" href="/login">Prijava</a>
+                    <a class="nav-link" href="/register">Registracija</a>
                     <% } else {%>
-                        <a class="nav-link" href="/logout">Izadji</a>
+                        <a class="nav-link" href="/logout">Odjava</a>
                         <% } %>
             </div>
         </div>

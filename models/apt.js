@@ -37,7 +37,7 @@ const aptSchema = new Schema({
 }, opts)
 
 aptSchema.virtual("properties.popUpMarkup").get(function() {
-    return `<a href="/apts/${this._id}" ><h4>${this.title}</h4></a><p>${this.price} €</p>`
+    return `<a href="/apts/${this._id}" class="map-popup-link"><p class="lead">${this.title}</p></a><p>${this.price} €</p>`
 });
 
 module.exports = mongoose.model("Apt", aptSchema);

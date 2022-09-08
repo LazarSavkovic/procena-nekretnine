@@ -1,16 +1,25 @@
 <% layout("layouts/boilerplate") %>
-    <h1>Prijavi se
-    </h1>
-    <form action="/login" method="POST" class="validated-form" novalidate>
-        <div class="mb-3">
-            <label for="username" class="form-label">Korisnicko ime:</label>
-            <input type="text" class="form-control" id="username" name="username" required>
-            <div class="valid-feedback">Odlicno!</div>
+<div class="container d-flex justify-content-center align-items-center mt-5">
+    <div class="row w-100">
+        <div class="col-md-6 offset-md-3 col-xl-4 offset-xl-4">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h5 class="card-title">Prijavi se</h5>
+                    <form action="/login" method="POST" class="validated-form" novalidate>
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Korisnicko ime:</label>
+                            <input type="text" class="form-control" id="username" name="username" autofocus required>
+                            <div class="valid-feedback">Odlicno!</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Sifra:</label>
+                            <input type="password" class="form-control" id="password" name="password" required>
+                            <div class="valid-feedback">Odlicno!</div>
+                        </div>
+                        <button class="btn btn-success col-12">Prijavi se</button>
+                    </form>
+                </div>
+            </div>
         </div>
-        <div class="mb-3">
-            <label for="password" class="form-label">Sifra:</label>
-            <input type="password" class="form-control" id="password" name="password" required>
-            <div class="valid-feedback">Odlicno!</div>
-        </div>
-        <button class="btn btn-success">Prijavi se</button>
-    </form>
+    </div>
+</div>
