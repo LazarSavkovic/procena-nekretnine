@@ -24,9 +24,8 @@ module.exports.createFlat = async (req, res, next) => {
     flat.geometry = geoData.body.features[0].geometry;
     flat.author = req.user._id;
     flat.value = Math.round(regress(flat, weights));
-    await flat.save()
-    console.log(flat)
-    req.flash("success", "Uspesno uneta nekretnina")
+    await flat.save();
+    req.flash("success", "Uspesno uneta nekretnina");
     res.redirect(`/flats/${flat._id}`);
 };
 

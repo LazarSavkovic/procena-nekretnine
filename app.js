@@ -18,6 +18,7 @@ const User = require("./models/user");
 const userRoutes = require("./routes/users")
 const flatRoutes = require("./routes/flats")
 const aptRoutes = require("./routes/apts")
+// const helmet = require("helmet");
 
 mongoose.connect("mongodb://localhost:27017/procena-nekretnine", {
     useNewUrlParser: true,
@@ -41,8 +42,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(mongoSanitize());
-
-
+// app.use(helmet());
 
 const sessionConfig = {
     name: "session",
