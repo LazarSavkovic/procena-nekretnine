@@ -15,15 +15,15 @@ const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local")
 const User = require("./models/user");
+const MongoStore = require("connect-mongo");
 
 const userRoutes = require("./routes/users")
 const flatRoutes = require("./routes/flats")
 const aptRoutes = require("./routes/apts")
 // const helmet = require("helmet");
 
-const dbUrl = process.env.DB_URL;
-const localDbUrl = "mongodb://localhost:27017/procena-nekretnine";
-mongoose.connect(localDbUrl, {
+const dbUrl = process.env.DB_URL || "mongodb://localhost:27017/procena-nekretnine";
+mongoose.connect(dbUrl, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
@@ -47,18 +47,28 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(mongoSanitize());
 // app.use(helmet());
 
+const secret = process.env.SECRET || "thisshouldbeabettersecret";
+
+const store = MongoStore.create({ mongoUrl: dbUrl, secret, touchAfter: 24 * 60 * 60 });
+
+store.on("error", function(e) {
+    console.log("SESSION STORE ERROR", e)
+})
+
 const sessionConfig = {
     name: "session",
-    secret: "thisshouldbeabettersecret",
+    secret,
     resave: false,
     saveUninitialized: true,
     cookie: {
         httpOnly: true,
         expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
         maxAge: 1000 * 60 * 60 * 24 * 7,
-    }
+    }, storE
+};
 
-}
+
+
 app.use(session(sessionConfig))
 app.use(flash());
 
