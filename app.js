@@ -2,6 +2,7 @@ if (process.env.NODE_ENV !== "production") {
     require("dotenv").config()
 }
 
+
 const express = require("express");
 const path = require('path');
 const mongoose = require("mongoose");
@@ -20,7 +21,9 @@ const flatRoutes = require("./routes/flats")
 const aptRoutes = require("./routes/apts")
 // const helmet = require("helmet");
 
-mongoose.connect("mongodb://localhost:27017/procena-nekretnine", {
+const dbUrl = process.env.DB_URL;
+const localDbUrl = "mongodb://localhost:27017/procena-nekretnine";
+mongoose.connect(localDbUrl, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
