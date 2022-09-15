@@ -1,6 +1,7 @@
 const Flat = require("../models/flat");
 const Apt = require("../models/apt");
 const regress = require("../utilities/regress");
+const { getPriceForFlat } = require("../utilities/neural_network/predict_prices");
 const weights = require("../seeds/data_science/weights.json");
 const mbxGeocoding = require("@mapbox/mapbox-sdk/services/geocoding");
 const mapBoxToken = process.env.MAPBOX_TOKEN;
@@ -23,7 +24,8 @@ module.exports.createFlat = async (req, res, next) => {
     const flat = new Flat(req.body.flat);
     flat.geometry = geoData.body.features[0].geometry;
     flat.author = req.user._id;
-    flat.value = Math.round(regress(flat, weights));
+    // flat.value = Math.round(regress(flat, weights));
+    flat.value = Math.round(getPriceForFlat(flat));
     await flat.save();
     req.flash("success", "Uspesno uneta nekretnina");
     res.redirect(`/flats/${flat._id}`);
@@ -44,13 +46,14 @@ module.exports.showFlat = async (req, res) => {
 
 module.exports.updateFlat = async (req, res) => {
     const { id } = req.params;
-    const flat = await Flat.findByIdAndUpdate(id, { ...req.body.flat })
-    flat.value = Math.round(regress(flat, weights));
+    const flat = await Flat.findByIdAndUpdate(id, { ...req.body.flat }, { new: true })
+    // flat.value = Math.round(regress(flat, weights));
     const geoData = await geocoder.forwardGeocode({
         query: req.body.flat.location,
         limit: 1
     }).send()
     flat.geometry = geoData.body.features[0].geometry;
+    flat.value = Math.round(getPriceForFlat(flat));
     await flat.save()
     req.flash("success", "Uspesno modifikovana nekretnina");
     res.redirect(`/flats/${id}`);
