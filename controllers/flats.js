@@ -9,7 +9,8 @@ const geocoder = mbxGeocoding({ accessToken: mapBoxToken })
 
 module.exports.index = async (req, res) => {
     const flats = await Flat.find({ author: req.user._id });
-    res.render("flats/index", { flats })
+    const username = req.user.username;
+    res.render("flats/index", { flats, username })
 };
 
 module.exports.renderNewForm = (req, res) => {

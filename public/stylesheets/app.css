@@ -59,41 +59,42 @@ body {
     border-radius: 1.5rem;
     z-index: 2;
     backdrop-filter: blur(1.5rem);
-    padding: 0;
 }
 
-.oval1,.oval2 {
+.oval1,.oval2, .oval3,.oval4  {
     background: white;
     background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2) );
-    height: 17rem;
-    width: 17rem;
     position: fixed;
-    border-radius: 3rem;
+
 }
 
 .oval1 {
 top: 50px;
-right: 15%
+right: 15%;
+border-radius: 3rem;
+height: 17rem;
+width: 17rem;
 }
 .oval2 {
 top: 500px;
-left: 10%
-}
-.oval3,.oval4 {
-    background: white;
-    background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2) );
-    height: 7rem;
-    width: 7rem;
-    position: fixed;
-    border-radius: 2rem;
+left: 10%;
+border-radius: 3rem;
+height: 17rem;
+width: 17rem;
 }
 .oval3 {
     top: 100px;
-    left: 10%
+    height: 7rem;
+    width: 7rem;
+    left: 10%;
+    border-radius: 2rem;
     }
 .oval4 {
 top: 600px;
-right: 15%
+height: 4rem;
+width: 4rem;
+right: 15%;
+border-radius: 1rem;
 }
 
 
@@ -107,6 +108,11 @@ right: 15%
     text-align: center;
     background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3) );
     margin: 0;
+}
+
+#avatar{
+    height: 5rem;
+    width: 5rem;
 }
 
 /* PROPERTIES */

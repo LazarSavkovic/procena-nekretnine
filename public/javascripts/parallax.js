@@ -8,5 +8,5 @@ window.addEventListener("scroll", function(){
     oval1.style.top = 50 - (value * 0.3) + "px";
     oval2.style.top = 500  - (value * 0.3) + "px";
     oval3.style.top = 100 - (value * 0.1) + "px";
-    oval4.style.top = 600  - (value * 0.1) + "px";
+    oval4.style.top = 600  - (value * 0.05) + "px";
 })
