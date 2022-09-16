@@ -1,3 +1,9 @@
+html {
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+ }
+
 #map {
     width: 100%;
 height: 400px;
@@ -10,7 +16,7 @@ border-radius: 0.8rem;
     border-top-right-radius: 0;
 }
 
-#dashboard a {
+.link a {
     text-decoration: none;
     padding: 0.25rem 0;
     font-weight: 700;
@@ -19,13 +25,13 @@ border-radius: 0.8rem;
     border-bottom: 0.25rem solid transparent;
 }
 
-#dashboard a:hover{
+.link a:hover{
     text-decoration: none;
     color: rgba(0,0,0,0.5);
     border-bottom-color:rgba(0,0,0,0.5);
 }
 
-#dashboard a.active {
+.link a.active {
     text-decoration: none;
     color: black;
     border-bottom-color:black;
@@ -34,4 +40,92 @@ border-radius: 0.8rem;
 .map-popup-link, .map-popup-link:hover, .map-popup-link:active {
     text-decoration: none;
     color: rgba(0,0,0);
+}
+
+body {
+    margin: 0px;
+    min-height: 100%;
+    width: 100%;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    /* background: linear-gradient(to right top, #53575c, #3c4045 );  */
+    background: -webkit-gradient(linear, left bottom, right top, from(#aab1b5), to(#858b8f)) fixed;
+    /* border: 5px solid red; */
+}
+.glass {
+    background: white;
+    background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3) );
+    border-radius: 1.5rem;
+    z-index: 2;
+    backdrop-filter: blur(1.5rem);
+    padding: 0;
+}
+
+.oval1,.oval2 {
+    background: white;
+    background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2) );
+    height: 17rem;
+    width: 17rem;
+    position: fixed;
+    border-radius: 3rem;
+}
+
+.oval1 {
+top: 50px;
+right: 15%
+}
+.oval2 {
+top: 500px;
+left: 10%
+}
+.oval3,.oval4 {
+    background: white;
+    background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2) );
+    height: 7rem;
+    width: 7rem;
+    position: fixed;
+    border-radius: 2rem;
+}
+.oval3 {
+    top: 100px;
+    left: 10%
+    }
+.oval4 {
+top: 600px;
+right: 15%
+}
+
+
+.sidebar {
+    flex: 1;
+    display: flex;
+    border-radius: 1.5rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3) );
+    margin: 0;
+}
+
+/* PROPERTIES */
+
+.properties {
+    flex: 2;
+    justify-content: flex-start;
+    margin: 4rem;
+
+}
+
+.status {
+    margin-bottom: 3rem;
+}
+.cards {
+    align-items: center;
+}
+.card {
+    background: linear-gradient(to left top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.8));
+    width: 100%;
+    box-shadow: 6px 6px 20px rgba(50, 50, 50, 0.2);
 }

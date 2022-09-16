@@ -1,10 +1,21 @@
 <% layout("layouts/boilerplate") %>
 <div class="row">
-    <div class="col-md-8 offset-md-2">
-    <h1>Tvoje nekretnine</h1>
-    <div id="dashboard" class="mb-3">
-    <a href="/flats/new">Unesi novu nekretninu</a>
-</div>
+    <div class="col-md-8 offset-md-2 glass d-flex flex-row">
+        <div class="sidebar">
+            <div class="user py-5">
+                <img src="./images/avatar.png" alt="">
+                <h3>Simo Edwin</h3>
+                <p>Clan</p>
+            </div>
+            <div class="links">
+                <div class="link"><a href="/flats/new">Unesi novu nekretninu</a></div>
+            </div>
+        </div>
+        <div class="properties d-flex flex-column">
+        <div class="status">
+            <h1>Tvoje nekretnine</h1>
+        </div>
+    <div class="cards  d-flex flex-column">
     <% flats.forEach((flat, index) => { %>
         <div class="card mb-3">
             <div class="row">
@@ -18,13 +29,20 @@
                             €</p>
                         <p class="card-text"><small class="text-muted">Broj soba: <%= flat.rooms %></small></p>
                         <p class="card-text"><small class="text-muted">Povrsina: <%= flat.sq_mt%> m2</small></p>
-                        <a href="/flats/<%= flat._id %>" class="btn btn-primary"> Vise detalja</a>
+                        <a href="/flats/<%= flat._id %>" class="btn btn-danger"> Vise detalja</a>
                     </div>
                 </div>
             </div>
         </div>
         <% }) %>
-
+    </div>
+    </div>
+    </div>
+    <div class="oval1"></div>
+    <div class="oval2"></div>
+    <div class="oval3"></div>
+    <div class="oval4"></div>
+</div>
         <script>
             const mapToken = "<%-process.env.MAPBOX_TOKEN%>";
             const flats = <%- JSON.stringify(flats) %>;

@@ -11,6 +11,13 @@ router.route("/")
 
 router.get("/new", isLoggedIn, flats.renderNewForm);
 
+router.route("/predictnew")
+    .get(flats.renderPredictForm)
+    .post(flats.predictFlat);
+
+router.route("/predicted")
+    .get(flats.predicted)    
+
 router.route("/:id")
     .get(isLoggedIn, isAuthor, catchAsync(flats.showFlat))
     .put(isLoggedIn, isAuthor, validateFlat, catchAsync(flats.updateFlat))
