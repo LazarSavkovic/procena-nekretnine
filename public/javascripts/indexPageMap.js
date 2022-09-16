@@ -10,7 +10,7 @@ const map = new mapboxgl.Map({
     });
 
 
-new mapboxgl.Marker({color: "#7a7979"})
+new mapboxgl.Marker({color: "#cf2147"})
     .setLngLat(flat.geometry.coordinates)
     .setPopup(
         new mapboxgl.Popup({ offset: 25})

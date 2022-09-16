@@ -6,7 +6,7 @@
             <form action="/flats/<%= flat._id %>?_method=PUT" method="POST" novalidate class="validated-form">
                 <div class="mb-3">
                     <label class="form-label" for="title">Naziv</label>
-                    <input class="form-control" type="text" id="title" name="flat[title]" value="<%=flat.title %>"
+                    <input class="form-control" type="text" id="title" name="flat[title]" value="<%=flat.title %>" autofocus
                         required>
                     <div class="valid-feedback">Odlicno!</div>
                 </div>

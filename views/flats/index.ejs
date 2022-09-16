@@ -13,7 +13,7 @@
         </div>
         <div class="properties d-flex flex-column">
         <div class="status">
-            <h1>Tvoje nekretnine</h1>
+            <h1>Tvoje nekretnine</h1><input class="form-control" id="filter" type="text">
         </div>
     <div class="cards  d-flex flex-column">
     <% flats.forEach((flat, index) => { %>
@@ -21,15 +21,14 @@
             <div class="row">
                 <div class="col-md-4 index-map" id="map-<%=index%>"></div>
                 <div class="col-md-8">
-                    <div class="card-body">
+                    <div class="card-body d-flex flex-column">
                         <h5>
                             <%= flat.title %>
                         </h5>
-                        <p class="card-text">Procenjena vrednost: <%= flat.value %>
+                        <p class="card-text">Procenjena vrednost: <b><%= flat.value %></b>
                             €</p>
-                        <p class="card-text"><small class="text-muted">Broj soba: <%= flat.rooms %></small></p>
-                        <p class="card-text"><small class="text-muted">Povrsina: <%= flat.sq_mt%> m2</small></p>
-                        <a href="/flats/<%= flat._id %>" class="btn btn-danger"> Vise detalja</a>
+                        <p class="card-text">Povrsina: <%= flat.sq_mt%> m<sup>2</sup></p>
+                        <a href="/flats/<%= flat._id %>" class="stretched-link"></a>
                     </div>
                 </div>
             </div>
@@ -48,3 +47,4 @@
             const flats = <%- JSON.stringify(flats) %>;
         </script>
         <script src="/javascripts/indexPageMap.js"></script>
+        <script src="/javascripts/indexFilter.js"></script>
