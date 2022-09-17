@@ -1,17 +1,27 @@
 <% layout("layouts/boilerplate") %>
 
 <div class="row">
-    <div class="col-md-6 offset-md-3 glass p-4">
+    <div class="col-md-8 offset-md-2  glass d-flex flex-row p-0">
+        <div class="sidebar">
+            <div class="user py-5">
+                <img src="/images/avatar.png" class="avatar" alt="">
+                <h3><%=username%></h3>
+                <p>Clan</p>
+            </div>
+            <div class="links position-relative">
+                <div class="link"><a href="/flats/new"><img src="/images/house.svg" class="house-svg" alt=""> Nova nekretnina</a></div>
+                <div class="link"><a href="/flats"><img src="/images/houses.svg" class="houses-svg" alt=""> Moje nekretnine</a></div>
+            </div>
+        </div><div class="property p-0">
         <div class="card mb-3">
             <img src="<%= flat.image %>" alt="" class="card-img-top">
             <div class="card-body">
-                <h5 class="card-title">
+                <h3 class="card-title">
                     <%= flat.title %>
-                </h5>
-                <p class="card-text">Procenjena vrednost: <%= flat.value %> €
-                </p>
+                </h3>
+                <p class="card-text">Procenjena vrednost: <b><%= flat.value %> €</b></p>
             </div>
-            <ul class="list-group list-group-flush">
+            <ul class="list-group list-group-flush glass">
                 <li class="list-group-item text-muted">Opis: <%= flat.short_description%></li>
                 <li class="list-group-item text-muted">Adresa: <%= flat.location %>
                 </li>
@@ -20,18 +30,20 @@
                 <li class="list-group-item text-muted">Broj soba: <%= flat.rooms %>
                 </li>
             </ul>
-            <div class="card-body">
-                <a class="card-link btn btn-info" href="/flats/<%=flat._id%>/edit">Izmeni sadrzaj</a>
+            <div class="card-body pt-0">
+                <div class="mb-3" id="map"></div>
+                <div class="buttons d-flex flex-row">
+                <a class="card-link btn btn-secondary flex-grow-1 mx-1" href="/flats/<%=flat._id%>/edit">Izmeni sadrzaj</a>
 
-                <form class="d-inline" action="/flats/<%=flat._id%>?_method=DELETE" method="POST"><button
-                        class="btn btn-danger">Izbrisi
+                <form class="d-inline flex-grow-1 mx-1" action="/flats/<%=flat._id%>?_method=DELETE" method="POST"><button
+                        class="btn btn-danger col-12">Izbrisi
                         stan</button>
-                </form>
+                </form></div>
             </div>
             <div class="card-footer text-muted">2 days ago</div>
         </div>
-        <div class="mb-3" id="map"></div>
-    </div>
+
+    </div></div>
     <div class="oval1"></div>
     <div class="oval2"></div>
     <div class="oval3"></div>

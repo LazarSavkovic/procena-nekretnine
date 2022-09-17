@@ -1,14 +1,25 @@
 <% layout("layouts/boilerplate") %>
 
 <div class="row">
-    <div class="col-md-6 offset-md-3 glass p-4">
+    <div class="col-md-8 offset-md-2 d-flex flex-row glass p-0">
+        <div class="sidebar">
+            <div class="user py-5">
+                <img src="/images/avatar.png" class="avatar" alt="">
+                <h5>Niste prijavljeni</h5>
+            </div>
+          <div class="links"><div class="link"><img src="/images/house.svg" class="house-svg" alt=""><a class="stretched-link" href="/flats/predictnew">Nova nekretnina</a></div>
+          <div class="link"><a href="/register">Registruj se, upamti i prati vrednost nekretnine</a></div>
+          <div class="link"><a href="/login">Prijavi se, upamti i prati vrednost nekretnine</a></div>
+            </div>
+            </div>
+            <div class="property">
         <div class="card mb-3">
             <img src="<%= flat.image %>" alt="" class="card-img-top">
             <div class="card-body">
                 <h5 class="card-title">
                     <%= flat.title %>
                 </h5>
-                <p class="card-text">Procenjena vrednost: <%= flat.value %> €
+                <p class="card-text">Procenjena vrednost: <b><%= flat.value %> €</b>
                 </p>
             </div>
             <ul class="list-group list-group-flush">
@@ -21,14 +32,12 @@
                 </li>
             </ul>
             <div class="card-body">
-                <a class="card-link btn btn-success col-12" href="/register">Registruj se, upamti i prati vrednost nekretnine</a>
-                <a class="card-link btn btn-info col-12" href="/login">Prijavi se, upamti i prati vrednost nekretnine</a>
-
-                </form>
+                <div class="mb-3" id="map"></div>
             </div>
             <div class="card-footer text-muted">2 days ago</div>
         </div>
-        <div class="mb-3" id="map"></div>
+    </div>
+    </div>
     </div>
     <div class="oval1"></div>
     <div class="oval2"></div>

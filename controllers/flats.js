@@ -58,7 +58,8 @@ module.exports.showFlat = async (req, res) => {
     const { id } = req.params;
     const flat = await Flat.findById(id);
     const apts = await Apt.find({})
-    res.render("flats/show", { flat, apts });
+    const username = req.user.username;
+    res.render("flats/show", { flat, apts, username });
 };
 module.exports.predicted = async (req, res) => {
     const flat = req.session.flat;

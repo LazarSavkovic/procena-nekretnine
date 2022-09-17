@@ -1,10 +1,15 @@
 <% layout("layouts/boilerplate") %>
+<div class="row">
+    <div class="col-md-8 offset-md-2 glass d-flex flex-column p-5">
     <h1>Stanovi Beograd</h1>
-    <a href="/apts/new">Unesi nov stan</a>
+    <div class="dashboard status d-flex flex-row">
+        <a href="/apts/new">Nova nekretnina</a>
+<input class="form-control" id="filter" type="text" placeholder="Filtriraj po naslovu">
+    </div>
     <% for (const apt of apts) { %>
-        <div class="card mb-3">
+        <div class="card my-3">
             <div class="row">
-                <div class="col-md-4"><img class="img-fluid" src="<%= apt.image %>" alt=""></div>
+                <div id="apt-img-div" class="col-md-4"><img id="apt-img" class="img-fluid" src="<%= apt.image %>" alt=""></div>
                 <div class="col-md-8">
                     <div class="card-body">
                         <h5>
@@ -12,12 +17,18 @@
                         </h5>
                         <p class="card-text">Opis: <%= apt.short_description %>
                         </p>
-                        <p class="card-text"><small class="text-muted">Cena: <%= apt.price %> €</small></p>
-                        <p class="card-text"><small class="text-muted">Broj soba: <%= apt.rooms %></small></p>
-                        <p class="card-text"><small class="text-muted">Povrsina: <%= apt.sq_mt %> m2</small></p>
-                        <a href="/apts/<%= apt._id %>" class="btn btn-primary"> Vise detalja</a>
+                        <p class="card-text"><small class="text-muted">Cena: <b><%= apt.price %> € </b></small></p>
+                        <p class="card-text"><small class="text-muted">Povrsina: <%= apt.sq_mt %> m<sup>2</sup></small></p>
+                        <a href="/apts/<%= apt._id %>" class="stretched-link"></a>
                     </div>
                 </div>
             </div>
         </div>
         <% } %>
+    </div>
+    <div class="oval1"></div>
+    <div class="oval2"></div>
+    <div class="oval3"></div>
+    <div class="oval4"></div>
+    </div>
+    <script src="/javascripts/indexFilter.js"></script>

@@ -7,17 +7,29 @@ html {
 
 #map {
     width: 100%;
-height: 400px;
-border-radius: 0.8rem;
+    height: 400px;
+    border-radius: 0.8rem;
 }
 
 .index-map {
     border-radius: 0.8rem;
     border-bottom-right-radius: 0;
     border-top-right-radius: 0;
+    border-right: solid rgb(226, 226, 226) 1px;
 }
 
-.link a {
+.dashboard {
+    justify-content: space-between;
+}
+
+.links{
+    position: relative;
+}
+.link{
+    margin-bottom: 2rem;
+}
+
+.link a, .dashboard a {
     text-decoration: none;
     padding: 0.25rem 0;
     font-weight: 700;
@@ -26,13 +38,13 @@ border-radius: 0.8rem;
     border-bottom: 0.25rem solid transparent;
 }
 
-.link a:hover{
+.link a:hover, .dashboard a:hover {
     text-decoration: none;
     color: rgba(0,0,0,0.5);
     border-bottom-color:rgba(0,0,0,0.5);
 }
 
-.link a.active {
+.link a.active,  .dashboard a:hover  {
     text-decoration: none;
     color: black;
     border-bottom-color:black;
@@ -57,7 +69,7 @@ body {
 .glass {
     background: white;
     background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3) );
-    border-radius: 1.5rem;
+    border-radius: 0.7rem;
     z-index: 2;
     backdrop-filter: blur(1.5rem);
     margin-bottom: 35px;
@@ -67,20 +79,21 @@ body {
     background: white;
     background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2) );
     position: fixed;
+    z-index: 0;
 
 }
 
 .oval1 {
 top: 50px;
 right: 15%;
-border-radius: 3rem;
+border-radius: 2.5rem;
 height: 17rem;
 width: 17rem;
 }
 .oval2 {
 top: 500px;
 left: 10%;
-border-radius: 3rem;
+border-radius: 2.5rem;
 height: 17rem;
 width: 17rem;
 }
@@ -89,21 +102,21 @@ width: 17rem;
     height: 7rem;
     width: 7rem;
     left: 10%;
-    border-radius: 2rem;
+    border-radius: 1.5rem;
     }
 .oval4 {
 top: 600px;
 height: 4rem;
 width: 4rem;
 right: 15%;
-border-radius: 1rem;
+border-radius: 0.5rem;
 }
 
 
 .sidebar {
     flex: 1;
     display: flex;
-    border-radius: 1.5rem;
+    border-radius: 0.7rem;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
@@ -113,12 +126,17 @@ border-radius: 1rem;
     color:rgba(0, 0, 0, 0.8);
 }
 
-#avatar{
+.avatar{
     height: 5rem;
     width: 5rem;
 }
 
 /* PROPERTIES */
+.property {
+    flex: 2;
+    margin: 4rem;
+    color:rgba(21, 14, 47, 0.8);
+}
 
 .properties {
     flex: 2;
@@ -136,12 +154,12 @@ border-radius: 1rem;
     font-weight: 700;
 }
 
-.status #search {
+.status #filter, .dashboard #filter  {
     background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
     border: none;
     border-radius: 2rem;
     width: 70%;
-    padding: 0.2rem;
+    padding-left: 0.8rem;
 }
 
 .cards {
@@ -158,6 +176,10 @@ border-radius: 1rem;
     transition: box-shadow 0.4s;
 }
 
+.property .card {
+    margin: 0;
+}
+
 .card-body {
     justify-content: flex-end;
     align-items: flex-start;
@@ -167,4 +189,33 @@ border-radius: 1rem;
     background: linear-gradient(to left top, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.6));
     border: none;
     box-shadow: 4px 4px 20px rgba(50, 50, 50, 0.2);
+}
+
+
+/* APTS */
+
+#apt-img-div {
+    max-width: 100%;
+    height: 13rem;
+    left: 0px;
+    right: 0px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 1.5rem;
+
+}
+
+#apt-img {
+    width: 100%;
+    height: 100%;
+    display: block; 
+    border-radius: 0.5rem;
+}
+
+.house-svg {
+    height: 2rem;
+}
+.houses-svg {
+    height: 2.5rem;
 }

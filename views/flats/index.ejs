@@ -3,17 +3,21 @@
     <div class="col-md-8 offset-md-2 glass d-flex flex-row p-0">
         <div class="sidebar">
             <div class="user py-5">
-                <img src="./images/avatar.png" id="avatar" alt="">
+                <img src="/images/avatar.png" class="avatar" alt="">
                 <h3><%=username%></h3>
                 <p>Clan</p>
             </div>
-            <div class="links">
-                <div class="link"><a href="/flats/new">Unesi novu nekretninu</a></div>
+            <div class="links position-relative">
+                <div class="link"><a href="/flats/new"><img src="/images/house.svg" class="house-svg" alt=""> Nova nekretnina</a></div>
             </div>
         </div>
         <div class="properties d-flex flex-column">
         <div class="status">
-            <h1>Tvoje nekretnine</h1><input class="form-control" id="filter" type="text">
+            <h1>Tvoje nekretnine</h1>
+            <% if (flats.length > 1) { %>
+                <input class="form-control" id="filter" type="text"  placeholder="Filtriraj po naslovu">
+          <%  } %>
+
         </div>
     <div class="cards  d-flex flex-column">
     <% flats.forEach((flat, index) => { %>
@@ -25,8 +29,7 @@
                         <h5>
                             <%= flat.title %>
                         </h5>
-                        <p class="card-text">Procenjena vrednost: <b><%= flat.value %></b>
-                            €</p>
+                        <p class="card-text">Procenjena vrednost: <b><%= flat.value %> €</b></p>
                         <p class="card-text">Povrsina: <%= flat.sq_mt%> m<sup>2</sup></p>
                         <a href="/flats/<%= flat._id %>" class="stretched-link"></a>
                     </div>
