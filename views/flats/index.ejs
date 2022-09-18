@@ -1,13 +1,13 @@
 <% layout("layouts/boilerplate") %>
 <div class="row">
-    <div class="col-md-8 offset-md-2 glass d-flex flex-row p-0">
+    <div class="col-xl-6 offset-xl-3 col-lg-8 offset-lg-2 col-sm-10 offset-sm-1 panel glass d-flex p-0">
         <div class="sidebar">
-            <div class="user py-5">
+            <div class="user">
                 <img src="/images/avatar.png" class="avatar" alt="">
-                <h3><%=username%></h3>
-                <p>Clan</p>
+                <h3 class="username"><%=username%></h3>
+                <p class="member">Clan</p>
             </div>
-            <div class="links position-relative">
+            <div class="links">
                 <div class="link"><a href="/flats/new"><img src="/images/house.svg" class="house-svg" alt=""> Nova nekretnina</a></div>
             </div>
         </div>
@@ -19,11 +19,11 @@
           <%  } %>
 
         </div>
-    <div class="cards  d-flex flex-column">
+    <div class="cards d-flex flex-column">
     <% flats.forEach((flat, index) => { %>
         <div class="card mb-3">
             <div class="row">
-                <div class="col-md-4 index-map" id="map-<%=index%>"></div>
+                <!-- <div class="col-md-4 index-map" id="map-<%=index%>"></div> -->
                 <div class="col-md-8">
                     <div class="card-body d-flex flex-column">
                         <h5>

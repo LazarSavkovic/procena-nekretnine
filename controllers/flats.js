@@ -36,7 +36,7 @@ module.exports.createFlat = async (req, res, next) => {
 };
 module.exports.predictFlat = async (req, res, next) => {
     const geoData = await geocoder.forwardGeocode({
-        query: req.body.flat.location,
+        query: req.body.flat.location  + ", Beograd, Srbija",
         limit: 1
     }).send()
     const flat = new Flat(req.body.flat);
@@ -72,7 +72,7 @@ module.exports.updateFlat = async (req, res) => {
     const flat = await Flat.findByIdAndUpdate(id, { ...req.body.flat }, { new: true })
     // flat.value = Math.round(regress(flat, weights));
     const geoData = await geocoder.forwardGeocode({
-        query: req.body.flat.location,
+        query: req.body.flat.location + ", Beograd, Srbija",
         limit: 1
     }).send()
     flat.geometry = geoData.body.features[0].geometry;
