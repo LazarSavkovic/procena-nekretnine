@@ -1,6 +1,6 @@
 <% layout("layouts/boilerplate") %>
     <div class="row">
-        <div class="col-6 offset-3 glass p-4">
+        <div class="col-xl-6 offset-xl-3 col-lg-8 offset-lg-2 col-10 offset-1 glass p-4">
             <div class="card mb-3">
                 <img src="<%= apt.image %>" alt="" class="card-img-top">
                 <div class="card-body">
@@ -15,10 +15,6 @@
                     <li class="list-group-item text-muted">Broj soba: <%= apt.rooms %>
                     </li>
                     <li class="list-group-item text-muted">Povrsina: <%= apt.sq_mt %>
-                    </li>
-                    <li class="list-group-item text-muted">Latituda: <%= apt.lat %>
-                    </li>
-                    <li class="list-group-item text-muted">Longituda: <%= apt.long %>
                     </li>
                 </ul>
                 <div class="card-body">

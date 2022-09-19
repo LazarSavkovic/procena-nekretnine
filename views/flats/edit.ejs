@@ -1,42 +1,44 @@
 <% layout("layouts/boilerplate") %>
 
     <div class="row">
-        <div class="col-md-6 offset-md-3 glass p-4">
+        <div class="col-xl-6 offset-xl-3 col-lg-8 offset-lg-2 col-10 offset-1 glass p-4">
             <h1 class="text-center">Izmeni nekretninu</h1>
             <form action="/flats/<%= flat._id %>?_method=PUT" method="POST" novalidate class="validated-form">
-                <div class="mb-3">
+                <div class="mb-3 text-input">
                     <label class="form-label" for="title">Naziv</label>
                     <input class="form-control" type="text" id="title" name="flat[title]" value="<%=flat.title %>" autofocus
                         required>
                     <div class="valid-feedback">Odlicno!</div>
                 </div>
-                <div class="mb-3">
+                <div class="mb-3 text-input">
                     <label class="form-label" for="location">Adresa:</label>
                     <input class="form-control" type="text" id="location" name="flat[location]" value="<%=flat.location %>" required>
                     <div class="valid-feedback">Odlicno!</div>
                 </div>
-                <div class="mb-3">
+                <div class="mb-3 text-input">
                     <label class="form-label" for="short_description">Kratak opis:</label>
                     <textarea class="form-control" name="flat[short_description]" id="short_description" cols="30"
                         rows="5"><%= flat.short_description %></textarea>
                 </div>
-                <div class="mb-3">
-                    <label class="form-label" for="sq_mt">Metara kvadratnih:</label>
+                <div class="number-inputs d-flex flex-row">
+                <div class="number-input">
+                    <label class="form-label" for="sq_mt">Povrsina (m<sup>2</sup>):</label>
                     <input class="form-control" type="number" name="flat[sq_mt]" id="sq_mt" value="<%=flat.sq_mt %>"
                         required>
                     <div class="valid-feedback">Odlicno!</div>
                 </div>
-                <div class="mb-3">
+                <div class="number-input">
                     <label class="form-label" for="rooms">Broj soba:</label>
                     <input class="form-control" type="number" name="flat[rooms]" id="rooms" value="<%=flat.rooms %>"
                         required>
                     <div class="valid-feedback">Odlicno!</div>
                 </div>
-                <div class="mb-3">
+                <div class="number-input">
                     <label class="form-label" for="floor">Sprat:</label>
                     <input class="form-control" type="number" name="flat[floor]" value="<%=flat.floor %>" id="floor">
                     <div class="valid-feedback">Odlicno!</div>
                 </div>
+            </div>
                 <div class="mb-3">
                     <button class="btn btn-info" type="submit">Izmeni</button>
                 </div>
