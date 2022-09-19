@@ -106,6 +106,9 @@ body {
 .apts-index-glass {
     padding: 3rem;
 }
+.form-glass {
+    padding: 2rem;
+}
 
 .oval1,
 .oval2,
@@ -344,11 +347,14 @@ body {
     .apts-index-glass {
         padding: 2rem;
     }
+    .form-glass {
+        padding: 1.5rem;
+    }
 }
 
 @media (max-width: 1000px) {
     html {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
 
     h1 {
@@ -368,6 +374,9 @@ body {
     }
     .apts-index-glass {
         padding: 1.5rem;
+    }
+    .form-glass {
+        padding: 1rem;
     }
 }
 
@@ -406,6 +415,8 @@ body {
 
     .link {
         margin: 0;
+        /* border: red solid; */
+        padding: 0;
     }
 
     .username {
@@ -439,9 +450,12 @@ body {
     .apts-index-glass {
         padding: 0.7rem;
     }
+    .form-glass {
+        padding: 0.5rem;
+    }
 
     html {
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
 
     h1 {
