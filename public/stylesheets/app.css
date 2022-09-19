@@ -103,6 +103,10 @@ body {
     margin-bottom: 35px;
 }
 
+.apts-index-glass {
+    padding: 3rem;
+}
+
 .oval1,
 .oval2,
 .oval3,
@@ -306,10 +310,12 @@ body {
     padding: 0 0.5rem;
     flex: 1;
 }
+
 .text-input input {
     padding: 0 0.5rem;
     flex: 8;
 }
+
 .text-input textarea {
     padding: 0 0.5rem;
     flex: 8;
@@ -335,6 +341,9 @@ body {
     p {
         font-size: 1rem;
     }
+    .apts-index-glass {
+        padding: 2rem;
+    }
 }
 
 @media (max-width: 1000px) {
@@ -356,6 +365,9 @@ body {
 
     p {
         font-size: 0.9rem;
+    }
+    .apts-index-glass {
+        padding: 1.5rem;
     }
 }
 
@@ -412,6 +424,20 @@ body {
 
     .properties {
         margin-top: 2rem;
+        margin: 10px;
+        margin-left: 20px;
+        /* border: blue solid; */
+    }
+
+    .property {
+        margin-top: 2rem;
+        margin: 10px;
+        margin-left: 20px;
+        /* border: blue solid; */
+    }
+
+    .apts-index-glass {
+        padding: 0.7rem;
     }
 
     html {
@@ -434,6 +460,13 @@ body {
         font-size: 0.8rem;
     }
 
+
+    .cards {
+        /* border: red solid; */
+        margin: 0;
+        width: 100%;
+    }
+
     .card .row {
         display: flex;
         flex-direction: row;
@@ -444,6 +477,3 @@ body {
         /* border: blue solid; */
     }
 }
-
-
-
