@@ -191,29 +191,23 @@ body {
     margin: 0;
 }
 
-.number-inputs {
-    justify-content: space-between;
-    align-items: center;
-}
 
 .number-input {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    margin: 0 0.5rem;
-    flex: 1;
 }
 
 .number-input label {
     padding-right: 0.5rem;
     flex-basis: 270px;
-    /* flex: 1 1  auto; */
 }
 
 .number-input input {
-    flex: 1 1 1;
+    min-width: 5rem;
 }
+
 
 
 /* PROPERTIES */

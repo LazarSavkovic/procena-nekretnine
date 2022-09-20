@@ -16,44 +16,41 @@
                         rows="5" required><%= apt.short_description %></textarea>
                     <div class="valid-feedback">Odlicno!</div>
                 </div>
-                <div class="number-inputs d-flex flex-row mb-3">
-                    <div class="number-input">
+                <div class="number-inputs d-flex row flex-row mb-3">
+                    <div class="number-input col-6">
                         <label class="form-label" for="price">Cena:</label>
-                        <div class="input-group">
-                            <span class="input-group-text" id="price-label">€</span>
-                            <input type="text" class="form-control" id="price" name="apt[price]" placeholder="0.00"
-                                aria-label="price" aria-describedby="price-label" value="<%=apt.price %>" required>
-                            <div class="valid-feedback">Odlicno!</div>
-                        </div>
+                        <input class="form-control" type="number" name="apt[price]" id="price" value="<%=apt.price %>"
+                            required>
+                        <div class="valid-feedback">Odlicno!</div>
                     </div>
-                    <div class="number-input">
+                    <div class="number-input col-6">
                         <label class="form-label" for="sq_mt">Metara kvadratnih:</label>
                         <input class="form-control" type="number" name="apt[sq_mt]" id="sq_mt" value="<%=apt.sq_mt %>"
                             required>
                         <div class="valid-feedback">Odlicno!</div>
                     </div>
                 </div>
-                <div class="number-inputs d-flex flex-row mb-3">
-                    <div class="number-input">
+                <div class="number-inputs row d-flex flex-row mb-3">
+                    <div class="number-input col-6">
                         <label class="form-label" for="rooms">Broj soba:</label>
                         <input class="form-control" type="number" name="apt[rooms]" id="rooms" value="<%=apt.rooms %>"
                             required>
                         <div class="valid-feedback">Odlicno!</div>
                     </div>
-                    <div class="number-input">
+                    <div class="number-input col-6">
                         <label class="form-label" for="floor">Sprat:</label>
                         <input class="form-control" type="number" name="apt[floor]" value="<%=apt.floor %>" id="floor">
                         <div class="valid-feedback">Odlicno!</div>
                     </div>
                 </div>
-                <div class="number-inputs d-flex flex-row mb-3">
-                    <div class="number-input">
+                <div class="number-inputs row d-flex flex-row mb-3">
+                    <div class="number-input col-6">
                         <label class="form-label" for="lat">Latituda:</label>
                         <input class="form-control" type="number" name="apt[lat]" id="lat" value="<%=apt.lat %>"
                             required>
                         <div class="valid-feedback">Odlicno!</div>
                     </div>
-                    <div class="number-input">
+                    <div class="number-input col-6">
                         <label class="form-label" for="long">Longituda:</label>
                         <input class="form-control" type="number" name="apt[long]" id="long" value="<%=apt.long %>"
                             required>

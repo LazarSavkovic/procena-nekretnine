@@ -5,7 +5,7 @@
             <form action="/apts" method="POST" novalidate class="validated-form">
                 <div class="mb-3 text-input">
                     <label class="form-label" for="title">Naziv</label>
-                    <input class="form-control" type="text" id="title" name="apt[title]" required>
+                    <input class="form-control" type="text" id="title" name="apt[title]" autofocus required>
                     <div class="valid-feedback">Odlicno!</div>
                 </div>
                 <div class="mb-3 text-input">
@@ -14,41 +14,37 @@
                         rows="5" required></textarea>
                     <div class="valid-feedback">Odlicno!</div>
                 </div>
-                <div class="number-inputs d-flex flex-row mb-3">
-                <div class="number-input">
+                <div class="number-inputs row d-flex flex-row mb-3">
+                <div class="number-input col-6">
                     <label class="form-label" for="price">Cena:</label>
-                    <div class="input-group">
-                        <span class="input-group-text" id="price-label">€</span>
-                        <input type="text" class="form-control" id="price" name="apt[price]" placeholder="0.00"
-                            aria-label="price" aria-describedby="price-label" required>
-                        <div class="valid-feedback">Odlicno!</div>
-                    </div>
+                    <input class="form-control" type="number" name="apt[price]" id="price" required>
+                    <div class="valid-feedback">Odlicno!</div>
                 </div>
-                <div class="number-input">
+                <div class="number-input col-6">
                     <label class="form-label" for="sq_mt">Metara kvadratnih:</label>
                     <input class="form-control" type="number" name="apt[sq_mt]" id="sq_mt" required>
                     <div class="valid-feedback">Odlicno!</div>
                 </div>
                 </div>
-                <div class="number-inputs d-flex flex-row mb-3">
-                <div class="number-input">
+                <div class="number-inputs row d-flex flex-row mb-3">
+                <div class="number-input col-6">
                     <label class="form-label" for="rooms">Broj soba:</label>
                     <input class="form-control" type="number" name="apt[rooms]" id="rooms" required>
                     <div class="valid-feedback">Odlicno!</div>
                 </div>
-                <div class="number-input">
+                <div class="number-input col-6">
                     <label class="form-label" for="floor">Sprat:</label>
                     <input class="form-control" type="number" name="apt[floor]" id="floor">
                     <div class="valid-feedback">Odlicno!</div>
                 </div>
                 </div>
-                <div class="number-inputs d-flex flex-row mb-3">
-                <div class="number-input">
+                <div class="number-inputs row d-flex flex-row mb-3">
+                <div class="number-input col-6">
                     <label class="form-label" for="lat">Latituda:</label>
                     <input class="form-control" type="number" name="apt[lat]" id="lat" required>
                     <div class="valid-feedback">Odlicno!</div>
                 </div>
-                <div class="number-input">
+                <div class="number-input col-6">
                     <label class="form-label" for="long">Longituda:</label>
                     <input class="form-control" type="number" name="apt[long]" id="long" required>
                     <div class="valid-feedback">Odlicno!</div>
