@@ -57,11 +57,12 @@
                         <div class="valid-feedback">Odlicno!</div>
                     </div>
                 </div>
-                <div class="mb-3">
-                    <button class="btn btn-info" type="submit">Izmeni</button>
-                </div>
+                <div class="buttons d-flex flex-row">
+                <div class="d-inline flex-grow-1 me-1 col-6">
+                    <button class="btn btn-danger col-12" type="submit">Izmeni</button>
+                </div><a class="card-link btn btn-secondary flex-grow-1 col-6" href="/apts/<%= apt._id %> ">Vrati se na stan</a></div>
             </form>
-            <a href="/apts/<%= apt._id %> ">Vrati se na stan</a>
+            
         </div>
         <div class="oval1"></div>
         <div class="oval2"></div>
