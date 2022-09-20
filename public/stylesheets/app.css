@@ -253,6 +253,7 @@ body {
 }
 
 .card {
+    display: flex;
     background: linear-gradient(to left top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.8));
     width: 100%;
     box-shadow: 6px 6px 20px rgba(50, 50, 50, 0.2);
@@ -327,6 +328,20 @@ body {
 .text-input textarea {
     padding: 0 0.5rem;
     flex: 8;
+}
+
+.preloader {
+    background: #fff url(/images/preloader2.gif) no-repeat center center;
+    background-size: 60%;
+    height: 770px;
+    width: 100%;
+    z-index:100;
+
+    background: linear-gradient(to left top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.8));
+    box-shadow: 6px 6px 20px rgba(50, 50, 50, 0.2);
+    border-radius: 0.5rem;
+    border: none;
+
 }
 
 @media (max-width: 1300px) {

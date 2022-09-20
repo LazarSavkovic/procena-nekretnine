@@ -13,6 +13,7 @@
                 <div class="link"><a href="/flats"><img src="/images/houses.svg" class="houses-svg" alt=""> Moje nekretnine</a></div>
             </div>
         </div><div class="property p-0">
+            <div class="preloader"></div>
         <div class="card mb-3">
             <img src="<%= flat.image %>" alt="" class="card-img-top">
             <div class="card-body">
@@ -55,3 +56,15 @@
     const apts = <%- JSON.stringify(apts) %>;
 </script>
 <script src="/javascripts/showPageMap.js"></script>
+
+<script>
+
+    const preloader = document.querySelector(".preloader");
+    const card = document.querySelector(".card");
+    card.style.display = "none";
+
+    window.addEventListener("load", function() {
+        preloader.style.display = "none";
+        card.style.display = "flex";
+    })
+</script>
