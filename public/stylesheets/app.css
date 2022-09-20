@@ -126,30 +126,34 @@ body {
     top: 50px;
     right: 15%;
     border-radius: 2.5rem;
-    height: 17rem;
-    width: 17rem;
+    width: 20%;
+    height: 0;
+    padding-bottom: 20%;
 }
 
 .oval2 {
     top: 500px;
     left: 10%;
     border-radius: 2.5rem;
-    height: 17rem;
-    width: 17rem;
+    width: 20%;
+    height: 0;
+    padding-bottom: 20%;
 }
 
 .oval3 {
     top: 100px;
-    height: 7rem;
-    width: 7rem;
+    width: 9%;
+    height: 0;
+    padding-bottom: 9%;
     left: 10%;
     border-radius: 1.5rem;
 }
 
 .oval4 {
     top: 600px;
-    height: 4rem;
-    width: 4rem;
+    width: 5%;
+    height: 0;
+    padding-bottom: 5%;
     right: 15%;
     border-radius: 0.5rem;
 }
@@ -351,6 +355,29 @@ body {
     .form-glass {
         padding: 1.5rem;
     }
+    .oval1 {
+        top: 50px;
+        right: 13%;
+        border-radius: 2.5rem;
+    }
+    
+    .oval2 {
+        top: 500px;
+        left: 8%;
+        border-radius: 2.5rem;
+    }
+    
+    .oval3 {
+        top: 100px;
+        left: 8%;
+        border-radius: 1.5rem;
+    }
+    
+    .oval4 {
+        top: 600px;
+        right: 13%;
+        border-radius: 0.5rem;
+    }
 }
 
 @media (max-width: 1000px) {
@@ -378,6 +405,29 @@ body {
     }
     .form-glass {
         padding: 1rem;
+    }
+    .oval1 {
+        top: 50px;
+        right: 3%;
+        border-radius: 2.2rem;
+    }
+    
+    .oval2 {
+        top: 500px;
+        left: 3%;
+        border-radius: 2.2rem;
+    }
+    
+    .oval3 {
+        top: 100px;
+        left: 6%;
+        border-radius: 1.2rem;
+    }
+    
+    .oval4 {
+        top: 600px;
+        right: 2%;
+        border-radius: 0.3rem;
     }
 }
 
@@ -491,5 +541,28 @@ body {
 
     .index-map {
         /* border: blue solid; */
+    }
+    .oval1 {
+        top: 50px;
+        right: 3%;
+        border-radius: 1.8rem;
+    }
+    
+    .oval2 {
+        top: 500px;
+        left: 3%;
+        border-radius: 1.8rem;
+    }
+    
+    .oval3 {
+        top: 100px;
+        left: 6%;
+        border-radius: 0.8rem;
+    }
+    
+    .oval4 {
+        top: 600px;
+        right: 2%;
+        border-radius: 0.2rem;
     }
 }
