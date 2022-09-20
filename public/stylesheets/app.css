@@ -105,6 +105,7 @@ body {
 
 .apts-index-glass {
     padding: 3rem;
+    -webkit-backdrop-filter: blur(1.5rem);
 }
 .form-glass {
     padding: 2rem;
@@ -449,6 +450,7 @@ body {
 
     .apts-index-glass {
         padding: 0.7rem;
+        -webkit-backdrop-filter: blur(1.5rem);
     }
     .form-glass {
         padding: 0.5rem;
