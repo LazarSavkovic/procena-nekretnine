@@ -351,6 +351,7 @@ body {
     background: linear-gradient(to left top, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.4));
     border-radius: 10px;
     padding: 1rem;
+    margin: 0;
 }
 
  .double-slider {
@@ -367,7 +368,10 @@ body {
     align-items: center;
 }
 .price-input .field .currency{
-    margin-left: 1rem;
+    margin-left: 0.5rem;
+}
+.price-input .field .amount{
+    margin-right: 0.5rem;
 }
 
 .field input{
@@ -375,7 +379,6 @@ width: 100%;
 height: 100%;
 outline: none;
 text-align: center;
-margin-left: 12px;
 border: 1px solid #999;
 border-radius: 5px;
 -moz-appearance: textfield;
@@ -495,6 +498,13 @@ input[type="range"]::-moz-range-thumb{
         right: 13%;
         border-radius: 0.5rem;
     }
+
+    .price-input .field .currency{
+        margin-left: 0.4rem;
+    }
+    .price-input .field .amount{
+        margin-right: 0.4rem;
+    }
 }
 
 @media (max-width: 1000px) {
@@ -545,6 +555,13 @@ input[type="range"]::-moz-range-thumb{
         top: 600px;
         right: 2%;
         border-radius: 0.3rem;
+    }
+
+    .price-input .field .currency{
+        margin-left: 0.3rem;
+    }
+    .price-input .field .amount{
+        margin-right: 0.3rem;
     }
 }
 
@@ -681,5 +698,12 @@ input[type="range"]::-moz-range-thumb{
         top: 600px;
         right: 2%;
         border-radius: 0.2rem;
+    }
+
+    .price-input .field .currency{
+        margin-left: 0.2rem;
+    }
+    .price-input .field .amount{
+        margin-right: 0.2rem;
     }
 }
