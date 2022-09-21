@@ -21,8 +21,9 @@ module.exports.renderPredictForm = (req, res) => {
 };
 
 module.exports.createFlat = async (req, res, next) => {
+    const fullLocation = req.body.flat.location  + ", Beograd, Srbija";
     const geoData = await geocoder.forwardGeocode({
-        query: req.body.flat.location,
+        query: fullLocation,
         limit: 1
     }).send()
     const flat = new Flat(req.body.flat);
@@ -35,8 +36,9 @@ module.exports.createFlat = async (req, res, next) => {
     res.redirect(`/flats/${flat._id}`);
 };
 module.exports.predictFlat = async (req, res, next) => {
+    const fullLocation = req.body.flat.location  + ", Beograd, Srbija";
     const geoData = await geocoder.forwardGeocode({
-        query: req.body.flat.location  + ", Beograd, Srbija",
+        query: fullLocation,
         limit: 1
     }).send()
     const flat = new Flat(req.body.flat);
@@ -71,8 +73,9 @@ module.exports.updateFlat = async (req, res) => {
     const { id } = req.params;
     const flat = await Flat.findByIdAndUpdate(id, { ...req.body.flat }, { new: true })
     // flat.value = Math.round(regress(flat, weights));
+    const fullLocation = req.body.flat.location + ", Beograd, Srbija";
     const geoData = await geocoder.forwardGeocode({
-        query: req.body.flat.location + ", Beograd, Srbija",
+        query: fullLocation,
         limit: 1
     }).send()
     flat.geometry = geoData.body.features[0].geometry;

@@ -18,7 +18,7 @@
                 <div class="status">
                     <h1>Tvoje nekretnine</h1>
                     <% if (flats.length> 1) { %>
-                        <input class="form-control" id="filter" type="text" placeholder="Filtriraj po naslovu">
+                        <input class="form-control" id="flats-name-filter" type="text" placeholder="Filtriraj po naslovu">
                         <% } %>
 
                 </div>
@@ -55,4 +55,4 @@
         const flats = <%- JSON.stringify(flats) %>;
     </script>
     <script src="/javascripts/indexPageMap.js"></script>
-    <script src="/javascripts/indexFilter.js"></script>
+    <script src="/javascripts/indexFilterFlats.js"></script>
