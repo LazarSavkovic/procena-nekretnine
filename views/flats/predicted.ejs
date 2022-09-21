@@ -1,52 +1,57 @@
 <% layout("layouts/boilerplate") %>
 
-<div class="row">
-    <div class="col-xl-6 offset-xl-3 col-lg-8 offset-lg-2 col-10 offset-1 d-flex flex-row glass p-0">
-        <div class="sidebar">
-            <div class="user py-5">
-                <img src="/images/avatar.png" class="avatar" alt="">
-                <h5>Niste prijavljeni</h5>
+    <div class="row">
+        <div class="col-xl-6 offset-xl-3 col-lg-8 offset-lg-2 col-10 offset-1 panel glass d-flex p-0">
+            <div class="sidebar">
+                <div class="user py-5">
+                    <img src="/images/avatar.png" class="avatar" alt="">
+                    <h5>Niste prijavljeni</h5>
+                </div>
+                <div class="links">
+                    <div class="link"><a href="/flats/predictnew"><img src="/images/house.svg" class="house-svg" alt="">
+                            Nova nekretnina</a></div>
+                    <div class="link"><a href="/register">Registruj se, upamti i prati vrednost nekretnine</a></div>
+                    <div class="link"><a href="/login">Prijavi se, upamti i prati vrednost nekretnine</a></div>
+                </div>
             </div>
-          <div class="links"><div class="link"><a  href="/flats/predictnew"><img src="/images/house.svg" class="house-svg" alt=""> Nova nekretnina</a></div>
-          <div class="link"><a href="/register">Registruj se, upamti i prati vrednost nekretnine</a></div>
-          <div class="link"><a href="/login">Prijavi se, upamti i prati vrednost nekretnine</a></div>
+            <div class="property p-0">
+                <div class="card mb-3">
+                    <img src="<%= flat.image %>" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <%= flat.title %>
+                        </h5>
+                        <p class="card-text">Procenjena vrednost: <b>
+                                <%= flat.value %> €
+                            </b>
+                        </p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item text-muted">Opis: <%= flat.short_description%>
+                        </li>
+                        <li class="list-group-item text-muted">Adresa: <%= flat.location %>
+                        </li>
+                        <li class="list-group-item text-muted">Povrsina: <%= flat.sq_mt %>
+                        </li>
+                        <li class="list-group-item text-muted">Broj soba: <%= flat.rooms %>
+                        </li>
+                    </ul>
+                    <div class="card-body">
+                        <div class="mb-3" id="map"></div>
+                    </div>
+                    <div class="card-footer text-muted">2 days ago</div>
+                </div>
             </div>
-            </div>
-            <div class="property">
-        <div class="card mb-3">
-            <img src="<%= flat.image %>" alt="" class="card-img-top">
-            <div class="card-body">
-                <h5 class="card-title">
-                    <%= flat.title %>
-                </h5>
-                <p class="card-text">Procenjena vrednost: <b><%= flat.value %> €</b>
-                </p>
-            </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item text-muted">Opis: <%= flat.short_description%></li>
-                <li class="list-group-item text-muted">Adresa: <%= flat.location %>
-                </li>
-                <li class="list-group-item text-muted">Povrsina: <%= flat.sq_mt %>
-                </li>
-                <li class="list-group-item text-muted">Broj soba: <%= flat.rooms %>
-                </li>
-            </ul>
-            <div class="card-body">
-                <div class="mb-3" id="map"></div>
-            </div>
-            <div class="card-footer text-muted">2 days ago</div>
         </div>
+        <div class="oval1"></div>
+        <div class="oval2"></div>
+        <div class="oval3"></div>
+        <div class="oval4"></div>
     </div>
     </div>
-    </div>
-    <div class="oval1"></div>
-    <div class="oval2"></div>
-    <div class="oval3"></div>
-    <div class="oval4"></div>
-</div>
-<script>
-    const mapToken = "<%-process.env.MAPBOX_TOKEN%>";
-    const flat = <%- JSON.stringify(flat) %>;
-    const apts = <%- JSON.stringify(apts) %>;
-</script>
-<script src="/javascripts/showPageMap.js"></script>
+    <script>
+        const mapToken = "<%-process.env.MAPBOX_TOKEN%>";
+        const flat = <%- JSON.stringify(flat) %>;
+        const apts = <%- JSON.stringify(apts) %>;
+    </script>
+    <script src="/javascripts/showPageMap.js"></script>
