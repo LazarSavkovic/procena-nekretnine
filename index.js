@@ -9,17 +9,17 @@ const mongoose = require("mongoose");
 const mongoSanitize = require("express-mongo-sanitize");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
-const ExpressError = require("../utilities/ExpressError")
+const ExpressError = require("./utilities/ExpressError")
 const session = require("express-session");
 const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local")
-const User = require("../models/user");
+const User = require("./models/user");
 const MongoStore = require("connect-mongo");
 
-const userRoutes = require("../routes/users")
-const flatRoutes = require("../routes/flats")
-const aptRoutes = require("../routes/apts")
+const userRoutes = require("./routes/users")
+const flatRoutes = require("./routes/flats")
+const aptRoutes = require("./routes/apts")
 // const helmet = require("helmet");
 
 const dbUrl = process.env.DB_URL || "mongodb://localhost:27017/procena-nekretnine";
